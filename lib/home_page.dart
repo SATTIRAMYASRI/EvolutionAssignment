@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     } else if (screenWidth < 1200) {
       aspectRatio = 2;
     }
-    
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Products"),
@@ -129,7 +129,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Row(
                                   children: [
                                     if (isElementInCartList)
-                                      Row(
+                                      Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           ElevatedButton(
                                             onPressed: () {
@@ -139,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             child:
                                                 const Text("Remove From Cart"),
                                           ),
-                                          const SizedBox(width: 5),
+                                          const SizedBox(height: 10),
                                           ElevatedButton(
                                             onPressed: () {
                                               _cartCubit.updateCart(product);
